@@ -1,0 +1,52 @@
+- [ ] $data = array(3,12,8,5,2,13,4,9,15,1,10,0,11,6,7,14);
+- [ ] $len = count($data);
+- [ ] $step = 0;
+- [ ] qsort($data,0,$len-1);
+- [ ] echo $step;
+- [ ] echo ': ';
+- [ ] echo implode(', ',$data);
+- [ ] echo PHP_EOL;
+- [ ] function stepcounter() {
+- [ ]     global $data;
+- [ ]     global $step;
+- [ ]     $step++;
+- [ ]     if (($step % 10) == 0) {
+- [ ]         echo $step;
+- [ ]         echo ': ';
+- [ ]         echo implode(', ',$data);
+- [ ]         echo PHP_EOL;
+- [ ]     }
+- [ ] }
+- [ ] function qsort(&$array,$start,$end) {
+- [ ]     // 長さが1なら抜ける
+- [ ]     if ($start >= $end) {
+- [ ]         return;
+- [ ]     }
+- [ ]     // ピボットの設定。ここでは並びの真ん中を選択した
+- [ ]     $mid = (int) ($start+$end)/2;
+- [ ]     $pivot = $array[$mid];
+- [ ]     // 両端の位置を設定。
+- [ ]     $left = $start;
+- [ ]     $right = $end;
+- [ ]     while ($left <= $right) {
+- [ ]         // 左から、ピボットより小さいものを探す
+- [ ]         while ($pivot  $array[$right]) {
+- [ ]             $right--;
+- [ ]             stepcounter();
+- [ ]         }
+- [ ]         if ($left <= $right) {
+- [ ]             // 要素を交換する
+- [ ]             $tmpdata = $array[$left];
+- [ ]             $array[$left] = $array[$right];
+- [ ]             $array[$right] = $tmpdata;
+- [ ]
+- [ ]             // 交換したら、次の要素へ移る
+- [ ]             $left++;
+- [ ]             $right--;
+- [ ]             stepcounter();
+- [ ]         }
+- [ ]     }
+- [ ]     // 分割した部分ごとに、ソート処理を実行する
+- [ ]     qsort($array,$start,$right);
+- [ ]     qsort($array,$left,$end);
+- [ ] }

@@ -1,0 +1,62 @@
+<html>
+	<head>
+		<link rel="stylesheet" type="text/css" href="assets/css/bootstrap.css">
+		
+		<script type="text/javascript" src="assets/js/jquery1.11.0.min.js"></script>
+		<script type="text/javascript" src="assets/js/bootstrap.min.js"></script>
+		<script type="text/javascript" src="assets/js/bootstrap-modal-popover.js"></script>
+		 <script>
+	 $(document).ready(function(){
+	 $('#dates').datepicker().on('changeDate', function(ev){$('.datepicker').hide();});
+	 });
+		function popup()
+		{
+			$('.modal').modal();
+			
+		}
+
+	 </script>
+	 
+	</head>
+	<body>
+	<a href="javascript:void;" onClick="popup()"><span class="glyphicon glyphicon-pencil" aria-hidden="true">RRRRRR</span></a>
+	
+	
+	<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+					<h4 class="modal-title" id="myModalLabel">Fill Up For Edit </h4>
+				</div>
+				<div class="modal-body" id="myModalBody">
+				
+					<div class="row">
+						<div class="form-group">
+							
+							<div class="col-md-12">
+								
+								<input type="text"  id="old_mobile_no" class="form-control" placeholder="Enter Old Mobile No">
+							</div>
+							<div class="col-md-12">
+								
+								<input type="text"  id="edit_mobile_no" class="form-control" placeholder="Enter Mobile No">
+							</div>
+							
+							<div class="col-md-12">
+								
+								<input type="email" id="edit_email_id" class="form-control" placeholder="Enter Email ID" >
+							</div>
+						</div>
+					</div>
+				
+				</div>
+				<div class="modal-footer" id="myModalFooter">		
+					<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+					<button type="button" class="btn btn-primary">Save changes</button>
+				</div>
+			</div>
+		</div>
+	</div>
+	</body>
+</html>
